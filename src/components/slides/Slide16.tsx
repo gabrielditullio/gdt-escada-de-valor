@@ -59,7 +59,7 @@ const Slide16 = ({ isActive }: { isActive?: boolean }) => {
                   >
                     {/* Dot */}
                     <div
-                      className="absolute left-3 md:left-1/2 w-6 h-6 rounded-full border-2 -translate-x-1/2 z-10 flex items-center justify-center text-xs transition-all duration-300"
+                      className="absolute left-3 md:left-1/2 top-4 w-10 h-10 rounded-full border-2 -translate-x-1/2 z-10 flex items-center justify-center text-xl transition-all duration-300"
                       style={{
                         borderColor: node.color,
                         backgroundColor: node.isGold ? node.color : "var(--slide-dark-card)",
@@ -70,7 +70,7 @@ const Slide16 = ({ isActive }: { isActive?: boolean }) => {
 
                     {/* Card */}
                     <div
-                      className={`ml-10 md:ml-0 md:w-[44%] bg-slide-dark-card rounded-xl p-4 border border-slide-gold-border/20 ${
+                      className={`ml-14 md:ml-0 md:w-[44%] bg-slide-dark-card rounded-xl p-4 border border-slide-gold-border/20 ${
                         isRight ? "md:ml-[56%]" : "md:mr-[56%]"
                       }`}
                     >
