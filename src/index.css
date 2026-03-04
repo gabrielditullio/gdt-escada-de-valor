@@ -128,3 +128,12 @@
 .animate-pulse-arrow {
   animation: pulseArrow 1.5s ease-in-out infinite;
 }
+
+@keyframes pulsePrice {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+
+.animate-pulse-price {
+  animation: pulsePrice 2s ease-in-out infinite;
+}
