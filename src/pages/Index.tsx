@@ -16,6 +16,9 @@ import Slide12 from "@/components/slides/Slide12";
 import Slide13 from "@/components/slides/Slide13";
 import Slide14 from "@/components/slides/Slide14";
 import Slide15 from "@/components/slides/Slide15";
+import Slide16 from "@/components/slides/Slide16";
+import Slide17 from "@/components/slides/Slide17";
+import Slide18 from "@/components/slides/Slide18";
 
 const slides = [
   () => <Slide01 />,
@@ -33,6 +36,9 @@ const slides = [
   () => <Slide13 />,
   () => <Slide14 />,
   () => <Slide15 />,
+  () => <Slide16 />,
+  () => <Slide17 />,
+  () => <Slide18 />,
 ];
 
 const Index: React.FC = () => {
