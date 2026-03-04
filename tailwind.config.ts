@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "slide-black": "var(--slide-black)",
+        "slide-dark": "var(--slide-dark)",
+        "slide-dark-card": "var(--slide-dark-card)",
+        "slide-gold": "var(--slide-gold)",
+        "slide-gold-dim": "var(--slide-gold-dim)",
+        "slide-gold-border": "var(--slide-gold-border)",
+        "slide-light": "var(--slide-light-bg)",
+        "slide-white": "var(--slide-white)",
+        "slide-gray": "var(--slide-gray)",
+        "slide-gray-dark": "var(--slide-gray-dark)",
+        "slide-red": "var(--slide-red)",
+        "slide-green": "var(--slide-green)",
+      },
+      fontFamily: {
+        display: ["'Bebas Neue'", "'Oswald'", "sans-serif"],
+        body: ["'Montserrat'", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +81,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "slide-fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-transition": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-fade-in": "slide-fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "slide-transition": "slide-transition 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },
