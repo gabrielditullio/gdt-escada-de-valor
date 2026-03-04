@@ -1,90 +1,17 @@
 import React from "react";
 import { useSlideNavigation } from "@/hooks/useSlideNavigation";
-import SlideWrapper from "@/components/slides/SlideWrapper";
-import GoldBarTop from "@/components/slides/GoldBarTop";
-import SlideLabel from "@/components/slides/Label";
-import SlideTitle from "@/components/slides/SlideTitle";
-import Subtitle from "@/components/slides/Subtitle";
-import FooterQuote from "@/components/slides/FooterQuote";
-import FadeIn from "@/components/slides/FadeIn";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Slide01 from "@/components/slides/Slide01";
+import Slide02 from "@/components/slides/Slide02";
+import Slide03 from "@/components/slides/Slide03";
 
 const slides = [
-  // Slide 1 - Dark
-  () => (
-    <SlideWrapper theme="dark">
-      <GoldBarTop />
-      <div className="max-w-[600px]">
-        <FadeIn delay={0}>
-          <SlideLabel>Introdução</SlideLabel>
-        </FadeIn>
-        <FadeIn delay={100}>
-          <SlideTitle className="mt-4">Slide 1</SlideTitle>
-        </FadeIn>
-        <FadeIn delay={200}>
-          <Subtitle className="mt-4">
-            Este é um slide com tema escuro. Conteúdo de exemplo para demonstrar o layout.
-          </Subtitle>
-        </FadeIn>
-        <FadeIn delay={400}>
-          <FooterQuote className="mt-8">
-            "Uma citação de exemplo para o rodapé do slide."
-          </FooterQuote>
-        </FadeIn>
-      </div>
-    </SlideWrapper>
-  ),
-  // Slide 2 - Light
-  () => (
-    <SlideWrapper theme="light">
-      <GoldBarTop />
-      <div className="max-w-[600px]">
-        <FadeIn delay={0}>
-          <SlideLabel>Conceitos</SlideLabel>
-        </FadeIn>
-        <FadeIn delay={100}>
-          <SlideTitle className="mt-4">Slide 2</SlideTitle>
-        </FadeIn>
-        <FadeIn delay={200}>
-          <Subtitle className="mt-4">
-            Este é um slide com tema claro. Demonstra a alternância de temas entre slides.
-          </Subtitle>
-        </FadeIn>
-      </div>
-    </SlideWrapper>
-  ),
-  // Slide 3 - Dark scrollable
-  () => (
-    <SlideWrapper theme="dark" className="justify-start pt-16">
-      <GoldBarTop />
-      <div className="max-w-[600px]">
-        <FadeIn delay={0}>
-          <SlideLabel>Conteúdo Extenso</SlideLabel>
-        </FadeIn>
-        <FadeIn delay={100}>
-          <SlideTitle className="mt-4">Slide 3</SlideTitle>
-        </FadeIn>
-        <FadeIn delay={200}>
-          <Subtitle className="mt-4">
-            Este slide possui conteúdo longo para demonstrar o scroll interno.
-          </Subtitle>
-        </FadeIn>
-        {Array.from({ length: 8 }).map((_, i) => (
-          <FadeIn key={i} delay={300 + i * 80}>
-            <p className="text-slide-gray text-sm leading-relaxed mt-4 font-body max-w-[600px]">
-              Parágrafo {i + 1}: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-              commodo consequat.
-            </p>
-          </FadeIn>
-        ))}
-      </div>
-    </SlideWrapper>
-  ),
+  () => <Slide01 />,
+  () => <Slide02 />,
+  () => <Slide03 />,
 ];
 
-const Index = () => {
+const Index: React.FC = () => {
   const { current, total, next, prev, onTouchStart, onTouchEnd } = useSlideNavigation(slides.length);
   const progress = ((current + 1) / total) * 100;
 
