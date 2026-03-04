@@ -50,7 +50,7 @@ const Slide03 = ({ isActive }: { isActive?: boolean }) => (
         {/* Card RIGHT - Staircase */}
         <FadeIn delay={600} className="flex-1">
           <div className="bg-slide-white rounded-xl shadow-md border-t-[3px] border-slide-gold p-6 h-full">
-            <div className="text-3xl mb-3">🪜</div>
+            <div className="text-3xl mb-3">📶</div>
             <h3 className="font-body font-bold text-slide-dark text-base mb-2">
               Como deveria funcionar
             </h3>
