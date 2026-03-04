@@ -16,7 +16,7 @@ const realWants = [
   { emoji: "🛡️", title: "Segurança", desc: "Saber que o negócio sustenta a família mesmo em mês fraco" },
 ];
 
-const Slide07 = () => (
+const Slide07 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="light" className="justify-start pt-16 lg:pt-20">
     <div className="w-full max-w-5xl mx-auto">
       <FadeIn delay={100}>

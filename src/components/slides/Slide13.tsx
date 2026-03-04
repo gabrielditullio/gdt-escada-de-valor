@@ -6,7 +6,7 @@ import FadeIn from "@/components/slides/FadeIn";
 import StairIndicator from "@/components/slides/StairIndicator";
 import { Crown, Clock, Video } from "lucide-react";
 
-const Slide13 = () => (
+const Slide13 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">
     <GoldBarTop />
     <div className="w-full max-w-4xl mx-auto">

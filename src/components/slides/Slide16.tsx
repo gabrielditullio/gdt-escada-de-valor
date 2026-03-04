@@ -19,16 +19,17 @@ const manifesto = [
   "Nós somos a geração de barbeiros que não aceita mais trabalhar 14 horas por dia pra ganhar menos que o funcionário de shopping.",
 ];
 
-const Slide16 = () => {
+const Slide16 = ({ isActive }: { isActive?: boolean }) => {
   const [visibleNodes, setVisibleNodes] = useState(0);
 
   useEffect(() => {
+    if (!isActive) { setVisibleNodes(0); return; }
     const timers: ReturnType<typeof setTimeout>[] = [];
     timeline.forEach((_, i) => {
       timers.push(setTimeout(() => setVisibleNodes(i + 1), 600 + i * 500));
     });
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16 pb-20">

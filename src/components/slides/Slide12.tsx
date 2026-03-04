@@ -43,7 +43,7 @@ const deliverables = [
   "Emails de convite para aplicação",
 ];
 
-const Slide12 = () => {
+const Slide12 = ({ isActive }: { isActive?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   return (

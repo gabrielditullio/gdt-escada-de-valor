@@ -37,17 +37,18 @@ const deliverables = [
   "Sequência de emails de lançamento",
 ];
 
-const Slide11 = () => {
+const Slide11 = ({ isActive }: { isActive?: boolean }) => {
   const [open, setOpen] = useState(false);
   const [visibleItems, setVisibleItems] = useState(0);
 
   useEffect(() => {
+    if (!isActive) { setVisibleItems(0); return; }
     const timers: ReturnType<typeof setTimeout>[] = [];
     stackItems.forEach((_, i) => {
       timers.push(setTimeout(() => setVisibleItems(i + 1), 1200 + i * 400));
     });
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">

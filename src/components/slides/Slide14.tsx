@@ -22,14 +22,15 @@ const deliverables = [
   "Cobrança recorrente configurada",
 ];
 
-const Slide14 = () => {
+const Slide14 = ({ isActive }: { isActive?: boolean }) => {
   const [open, setOpen] = useState(false);
   const [animateBars, setAnimateBars] = useState(false);
 
   useEffect(() => {
+    if (!isActive) { setAnimateBars(false); return; }
     const t = setTimeout(() => setAnimateBars(true), 800);
     return () => clearTimeout(t);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">

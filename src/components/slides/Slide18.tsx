@@ -24,7 +24,7 @@ const hooks = [
   "A planilha que mudou minha barbearia (e que você pode copiar grátis)",
 ];
 
-const Slide18 = () => (
+const Slide18 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">
     <GoldBarTop />
     <div className="w-full max-w-4xl mx-auto">

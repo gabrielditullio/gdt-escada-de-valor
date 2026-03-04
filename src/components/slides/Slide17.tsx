@@ -15,7 +15,7 @@ const paragraphs = [
   { color: "text-slide-gold", text: "Seu: o mais valioso. Pode contatar a qualquer momento, sem pagar nada. Cada contato vale ~R$1/mês." },
 ];
 
-const Slide17 = () => (
+const Slide17 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="light" className="justify-start pt-14 lg:pt-16">
     <div className="w-full max-w-4xl mx-auto">
       <FadeIn delay={100}><SlideLabel>De onde vêm os clientes</SlideLabel></FadeIn>

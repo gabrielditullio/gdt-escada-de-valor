@@ -14,7 +14,7 @@ const deliverables = [
   "Integração com plataforma de pagamento",
 ];
 
-const Slide10 = () => {
+const Slide10 = ({ isActive }: { isActive?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   return (
