@@ -60,17 +60,18 @@ const transitions = [
   },
 ];
 
-const Slide15 = () => {
+const Slide15 = ({ isActive }: { isActive?: boolean }) => {
   const [activeStations, setActiveStations] = useState(0);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
   useEffect(() => {
+    if (!isActive) { setActiveStations(0); return; }
     const timers: ReturnType<typeof setTimeout>[] = [];
     stations.forEach((_, i) => {
       timers.push(setTimeout(() => setActiveStations(i + 1), 600 + i * 600));
     });
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">

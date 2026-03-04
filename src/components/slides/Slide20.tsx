@@ -20,13 +20,14 @@ const bars = [
   { name: "Comunidade (~150 membros)", value: "R$14.550", pct: 30, color: "#C9952E" },
 ];
 
-const Slide20 = () => {
+const Slide20 = ({ isActive }: { isActive?: boolean }) => {
   const [animateBars, setAnimateBars] = useState(false);
 
   useEffect(() => {
+    if (!isActive) { setAnimateBars(false); return; }
     const t = setTimeout(() => setAnimateBars(true), 1000);
     return () => clearTimeout(t);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">

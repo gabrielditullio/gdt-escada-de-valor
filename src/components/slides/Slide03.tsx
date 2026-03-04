@@ -13,7 +13,7 @@ const steps = [
   { label: "R$97/mês", color: "#D4A853" },
 ];
 
-const Slide03 = () => (
+const Slide03 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="light" className="justify-start pt-16 lg:pt-24">
     <div className="w-full max-w-5xl mx-auto">
       <FadeIn delay={100}>

@@ -31,7 +31,7 @@ const cards = [
   },
 ];
 
-const Slide21 = () => (
+const Slide21 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16 pb-20">
     <div className="w-full max-w-4xl mx-auto">
       <FadeIn delay={100}><SlideLabel>Decisão</SlideLabel></FadeIn>

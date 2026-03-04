@@ -33,7 +33,7 @@ const FunnelVisual = () => (
   </div>
 );
 
-const Slide01 = () => (
+const Slide01 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-16 lg:pt-24">
     <GoldBarTop />
     <div className="w-full max-w-5xl mx-auto">

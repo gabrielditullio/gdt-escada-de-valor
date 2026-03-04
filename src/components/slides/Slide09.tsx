@@ -20,7 +20,7 @@ const deliverables = [
   "Sequência de 5 emails automáticos pós-cadastro",
 ];
 
-const Slide09 = () => {
+const Slide09 = ({ isActive }: { isActive?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   return (

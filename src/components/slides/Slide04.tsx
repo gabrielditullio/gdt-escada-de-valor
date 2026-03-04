@@ -18,7 +18,7 @@ const floatingIcons = [
   { emoji: "📱", label: "Marketing", pos: "bottom-0 -right-8 md:-right-12" },
 ];
 
-const Slide04 = () => (
+const Slide04 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-16 lg:pt-20">
     <GoldBarTop />
     <div className="w-full max-w-5xl mx-auto flex flex-col items-center">

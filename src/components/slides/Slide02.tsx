@@ -67,7 +67,7 @@ const LeakyBucket = () => {
   );
 };
 
-const Slide02 = () => (
+const Slide02 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-16 lg:pt-24">
     <GoldBarTop />
     <div className="w-full max-w-5xl mx-auto">

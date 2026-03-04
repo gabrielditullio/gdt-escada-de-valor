@@ -14,18 +14,19 @@ const stepsData = [
   { name: "Alto Nível", price: "R$25-50k", color: "#0A0A0A", w: "80%", border: true },
 ];
 
-const Slide08 = () => {
+const Slide08 = ({ isActive }: { isActive?: boolean }) => {
   const [visibleSteps, setVisibleSteps] = useState(0);
   const [showCommunity, setShowCommunity] = useState(false);
 
   useEffect(() => {
+    if (!isActive) { setVisibleSteps(0); setShowCommunity(false); return; }
     const timers: ReturnType<typeof setTimeout>[] = [];
     stepsData.forEach((_, i) => {
       timers.push(setTimeout(() => setVisibleSteps(i + 1), 800 + i * 500));
     });
     timers.push(setTimeout(() => setShowCommunity(true), 800 + stepsData.length * 500 + 300));
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">

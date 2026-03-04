@@ -44,16 +44,17 @@ const phases = [
   },
 ];
 
-const Slide19 = () => {
+const Slide19 = ({ isActive }: { isActive?: boolean }) => {
   const [unlocked, setUnlocked] = useState(0);
 
   useEffect(() => {
+    if (!isActive) { setUnlocked(0); return; }
     const timers: ReturnType<typeof setTimeout>[] = [];
     phases.forEach((_, i) => {
       timers.push(setTimeout(() => setUnlocked(i + 1), 600 + i * 400));
     });
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [isActive]);
 
   return (
     <SlideWrapper theme="light" className="justify-start pt-14 lg:pt-16">

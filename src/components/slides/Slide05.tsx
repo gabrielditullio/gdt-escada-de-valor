@@ -10,7 +10,7 @@ const messages = [
   { text: "Investi em reforma mas não sei se foi a melhor decisão.", color: "#E74C3C" },
 ];
 
-const Slide05 = () => (
+const Slide05 = ({ isActive }: { isActive?: boolean }) => (
   <SlideWrapper theme="dark" className="justify-start pt-16 lg:pt-20 bg-slide-black">
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
       <FadeIn delay={100}>
