@@ -6,6 +6,7 @@ const stepsData = [
   { color: "#2C3E8C", label: "3" },
   { color: "#D4A853", label: "4" },
   { color: "#0A0A0A", label: "5", border: true },
+  { color: "#D4A853", label: "6" },
 ];
 
 interface StairIndicatorProps {
