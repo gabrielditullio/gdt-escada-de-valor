@@ -74,7 +74,7 @@ const Slide15 = ({ isActive }: { isActive?: boolean }) => {
   }, [isActive]);
 
   return (
-    <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">
+    <SlideWrapper theme="dark" className="justify-start pt-10 lg:pt-12 pb-20">
       <GoldBarTop />
       <div className="w-full max-w-4xl mx-auto">
         <FadeIn delay={100}><SlideLabel>A jornada</SlideLabel></FadeIn>
@@ -82,11 +82,11 @@ const Slide15 = ({ isActive }: { isActive?: boolean }) => {
 
         {/* Journey map */}
         <FadeIn delay={300}>
-          <div className="mt-8 relative">
+          <div className="mt-5 relative">
             {/* Path line */}
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-slide-gold/30 md:-translate-x-px" />
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               {stations.map((s, i) => {
                 const visible = i < activeStations;
                 const isRight = i % 2 === 1;
@@ -108,7 +108,7 @@ const Slide15 = ({ isActive }: { isActive?: boolean }) => {
 
                     {/* Content card */}
                     <div
-                      className={`ml-14 md:ml-0 md:w-[45%] bg-slide-dark-card rounded-xl p-4 border border-slide-gold-border/20 ${
+                      className={`ml-14 md:ml-0 md:w-[45%] bg-slide-dark-card rounded-xl p-3 border border-slide-gold-border/20 ${
                         isRight ? "md:ml-[55%]" : "md:mr-[55%]"
                       }`}
                     >
@@ -130,7 +130,7 @@ const Slide15 = ({ isActive }: { isActive?: boolean }) => {
 
         {/* Transition accordions */}
         <FadeIn delay={800}>
-          <h3 className="text-slide-white font-body font-bold text-sm mt-10 mb-4">Detalhes de cada transição</h3>
+          <h3 className="text-slide-white font-body font-bold text-sm mt-6 mb-3">Detalhes de cada transição</h3>
           <div className="flex flex-col gap-2 max-w-[600px]">
             {transitions.map((t, i) => (
               <div key={i} className="bg-slide-dark-card rounded-lg border border-slide-gold-border/20 overflow-hidden">
