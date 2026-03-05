@@ -11,7 +11,7 @@ const messages = [
 ];
 
 const Slide05 = ({ isActive }: { isActive?: boolean }) => (
-  <SlideWrapper theme="dark" className="justify-start pt-16 lg:pt-20 bg-slide-black">
+  <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16 bg-slide-black">
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
       <FadeIn delay={100}>
         <h2 className="font-body text-slide-gray text-base md:text-lg text-center mb-10">
