@@ -50,22 +50,20 @@ const Slide00: React.FC<Slide00Props> = ({ isActive, onNext }) => (
       </div>
     </div>
 
-    <FadeIn delay={1000} isActive={isActive}>
-      <div
-        className="hidden md:flex absolute top-1/2 right-16 -translate-y-1/2 items-center justify-center z-10"
-        style={{ width: 280, height: 280 }}
-      >
-        <div className="absolute inset-0 rounded-full border border-slide-gold/20 animate-spin-slow" />
-        <div className="absolute inset-[30px] rounded-full border border-slide-gold/10" />
-
-        <div className="relative z-10 flex flex-col items-center justify-center gap-1">
-          <Scissors size={40} className="text-slide-gold" style={{ opacity: 0.4 }} />
-          <span className="font-body uppercase text-slide-gold text-center" style={{ opacity: 0.25, fontSize: 9, letterSpacing: 2 }}>
-            BARBEARIA DE ELITE
-          </span>
+    <div className="hidden md:block absolute" style={{ top: '50%', right: 64, transform: 'translateY(-50%)', width: 280, height: 280, zIndex: 1 }}>
+      <FadeIn delay={1000} isActive={isActive}>
+        <div className="relative w-full h-full flex items-center justify-center" style={{ width: 280, height: 280 }}>
+          <div className="absolute inset-0 rounded-full border border-slide-gold/20 animate-spin-slow" />
+          <div className="absolute inset-[30px] rounded-full border border-slide-gold/10" />
+          <div className="relative z-10 flex flex-col items-center justify-center gap-1">
+            <Scissors size={40} className="text-slide-gold" style={{ opacity: 0.4 }} />
+            <span className="font-body uppercase text-slide-gold text-center" style={{ opacity: 0.25, fontSize: 9, letterSpacing: 2 }}>
+              BARBEARIA DE ELITE
+            </span>
+          </div>
         </div>
-      </div>
-    </FadeIn>
+      </FadeIn>
+    </div>
 
     <FadeIn delay={1500} isActive={isActive}>
       <footer className="pointer-events-none absolute bottom-0 left-0 w-full flex items-center justify-between px-5 md:px-10 lg:px-16 py-4 bg-slide-black/60 border-t border-slide-gold/10 z-20">
