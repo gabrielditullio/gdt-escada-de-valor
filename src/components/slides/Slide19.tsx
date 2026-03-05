@@ -64,7 +64,7 @@ const Slide19 = ({ isActive }: { isActive?: boolean }) => {
         <FadeIn delay={200}><Subtitle className="mt-2">Cada fase desbloqueia a seguinte</Subtitle></FadeIn>
 
         <FadeIn delay={300}>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mt-8">
             {phases.map((p, i) => {
               const isUnlocked = i < unlocked;
               return (
