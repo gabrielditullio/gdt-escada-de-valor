@@ -158,4 +158,11 @@
 
 .animate-bounce-arrow {
   animation: bounceArrow 1.5s ease-in-out infinite;
+  transform: rotate(45deg);
+}
+
+@media (hover: hover) {
+  button.group:hover span {
+    opacity: 1 !important;
+  }
 }
