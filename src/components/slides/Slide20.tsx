@@ -14,10 +14,10 @@ const premises = [
 ];
 
 const bars = [
-  { name: "Produto de Entrada + Bumps", value: "R$2.250", pct: 6, color: "#27AE60" },
-  { name: "Curso Barbearia de Elite", value: "R$7.500-12.000", pct: 22, color: "#3498DB" },
-  { name: "Mentoria", value: "R$12.000-24.000", pct: 42, color: "#D4A853" },
-  { name: "Comunidade (~150 membros)", value: "R$14.550", pct: 30, color: "#C9952E" },
+  { name: "Produto de Entrada + Bumps", value: "R$2.250", pct: 10, color: "#27AE60" },
+  { name: "Curso Barbearia de Elite", value: "R$7.500-12.000", pct: 45, color: "#3498DB" },
+  { name: "Mentoria", value: "R$12.000-24.000", pct: 75, color: "#D4A853" },
+  { name: "Comunidade (~150 membros)", value: "R$14.550", pct: 60, color: "#C9952E" },
 ];
 
 const Slide20 = ({ isActive }: { isActive?: boolean }) => {
