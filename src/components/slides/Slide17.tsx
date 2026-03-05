@@ -17,7 +17,7 @@ const Slide17 = ({ isActive }: { isActive?: boolean }) => (
 
       {/* Desktop: concentric circles with legend below */}
       <FadeIn delay={300}>
-        <div className="hidden md:flex flex-col items-center mt-10">
+         <div className="hidden md:flex flex-col items-center mt-10 px-20">
           <div className="relative flex items-center justify-center" style={{ width: 384, height: 384 }}>
             {/* Outer circle */}
             <div className="absolute inset-0 rounded-full border-2 border-slide-gray/40" />
@@ -28,9 +28,9 @@ const Slide17 = ({ isActive }: { isActive?: boolean }) => (
               <span className="font-body font-bold text-sm uppercase tracking-wider text-slide-dark">SEU</span>
               <span className="font-body text-[10px] text-slide-gray-dark mt-1 leading-tight">Lista de emails<br/>e WhatsApp</span>
             </div>
-            {/* Arrows inside diagram */}
-            <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ left: 16, top: '50%', transform: 'translateY(-50%)' }}>→</div>
-            <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ right: 16, top: '50%', transform: 'translateY(-50%) scaleX(-1)' }}>→</div>
+            {/* Subtle inward arrows between rings */}
+            <div className="absolute text-slide-gold/40 text-xs" style={{ top: 50, left: '50%', transform: 'translateX(-50%) rotate(180deg)' }}>▲</div>
+            <div className="absolute text-slide-gold/40 text-xs" style={{ top: 80, left: '50%', transform: 'translateX(-50%) rotate(180deg)' }}>▲</div>
           </div>
 
           {/* Legend below diagram */}
