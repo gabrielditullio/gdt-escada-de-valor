@@ -70,17 +70,22 @@ const Slide00: React.FC<Slide00Props> = ({ isActive, onNext }) => (
     <FadeIn delay={2000} isActive={isActive}>
       <button
         type="button"
-        onClick={onNext}
-        className="absolute bottom-[76px] md:bottom-[88px] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 group"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          onNext?.();
+        }}
+        className="absolute bottom-[76px] md:bottom-[88px] left-1/2 -translate-x-1/2 z-30 flex min-h-12 flex-col items-center justify-center gap-2 px-10 py-5 rounded-[40px] group cursor-pointer"
         aria-label="Começar apresentação"
       >
-        <span className="font-body uppercase text-[12px] font-semibold tracking-[2px] text-slide-white/40 group-hover:text-slide-white transition-colors duration-200">
+        <span className="font-body uppercase text-[12px] font-semibold tracking-[2px] text-slide-white/40 group-hover:text-slide-gold group-hover:opacity-100 transition-all duration-200">
           Começar apresentação
         </span>
         <span
-          className="block animate-bounce-arrow group-hover:opacity-100 transition-opacity duration-200 opacity-40"
+          className="block animate-bounce-arrow opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200"
           style={{ width: 12, height: 12, borderRight: "2px solid var(--slide-gold)", borderBottom: "2px solid var(--slide-gold)" }}
         />
+        <span className="pointer-events-none absolute inset-0 rounded-[40px] border border-transparent group-hover:border-slide-gold/30 transition-colors duration-200" />
       </button>
     </FadeIn>
 
