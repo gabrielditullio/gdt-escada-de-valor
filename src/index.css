@@ -141,3 +141,21 @@
 .animate-pulse-price {
   animation: pulsePrice 2s ease-in-out infinite;
 }
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 120s linear infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(8px); }
+}
+
+.animate-bounce-arrow {
+  animation: bounceArrow 1.5s ease-in-out infinite;
+}

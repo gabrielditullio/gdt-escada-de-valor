@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useSlideNavigation } from "@/hooks/useSlideNavigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import Slide00 from "@/components/slides/Slide00";
 import Slide01 from "@/components/slides/Slide01";
 import Slide02 from "@/components/slides/Slide02";
 import Slide03 from "@/components/slides/Slide03";
@@ -24,7 +25,7 @@ import Slide20 from "@/components/slides/Slide20";
 import Slide21 from "@/components/slides/Slide21";
 
 const slideComponents = [
-  Slide01, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07,
+  Slide00, Slide01, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07,
   Slide08, Slide09, Slide10, Slide11, Slide12, Slide13, Slide14,
   Slide15, Slide16, Slide17, Slide18, Slide19, Slide20, Slide21,
 ];
@@ -81,7 +82,11 @@ const Index: React.FC = () => {
         ref={slideRef}
         className="w-full h-full overflow-y-auto animate-slide-transition"
       >
-        <SlideComponent isActive={true} />
+        {current === 0 ? (
+          <Slide00 isActive={true} onNext={next} />
+        ) : (
+          <SlideComponent isActive={true} />
+        )}
       </div>
 
       {/* Scroll indicator */}
@@ -96,25 +101,27 @@ const Index: React.FC = () => {
         {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </div>
 
-      {/* Navigation buttons — 48px on mobile, 44px on desktop */}
-      <div className="fixed bottom-6 right-6 flex gap-2 z-50">
-        <button
-          onClick={prev}
-          disabled={current === 0}
-          className="w-12 h-12 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
-          aria-label="Slide anterior"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        <button
-          onClick={next}
-          disabled={current === total - 1}
-          className="w-12 h-12 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
-          aria-label="Próximo slide"
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
+      {/* Navigation buttons — hidden on cover slide */}
+      {current !== 0 && (
+        <div className="fixed bottom-6 right-6 flex gap-2 z-50">
+          <button
+            onClick={prev}
+            disabled={current === 0}
+            className="w-12 h-12 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
+            aria-label="Slide anterior"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={next}
+            disabled={current === total - 1}
+            className="w-12 h-12 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
+            aria-label="Próximo slide"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
