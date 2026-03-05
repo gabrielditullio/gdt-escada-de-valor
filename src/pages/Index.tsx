@@ -83,7 +83,7 @@ const Index: React.FC = () => {
         className="w-full h-full overflow-y-auto animate-slide-transition"
       >
         {current === 0 ? (
-          <Slide00 isActive={true} onNext={() => goTo(1)} />
+          <Slide00 isActive={true} onNext={next} />
         ) : (
           <SlideComponent isActive={true} />
         )}
