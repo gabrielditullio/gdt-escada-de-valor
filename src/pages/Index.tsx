@@ -79,7 +79,7 @@ const Index: React.FC = () => {
       <div
         key={current}
         ref={slideRef}
-        className="w-full h-full animate-slide-transition"
+        className="w-full h-full overflow-y-auto animate-slide-transition"
       >
         <SlideComponent isActive={true} />
       </div>
