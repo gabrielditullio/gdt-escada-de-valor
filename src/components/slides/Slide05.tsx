@@ -21,7 +21,7 @@ const Slide05 = ({ isActive }: { isActive?: boolean }) => (
 
       <div className="flex flex-col gap-4 w-full">
         {messages.map((msg, i) => (
-          <FadeIn key={i} delay={300 + i * 800}>
+          <FadeIn key={i} delay={300 + i * 500}>
             <div
               className="bg-slide-dark-card rounded-xl px-5 py-4 max-w-[500px] font-body text-slide-white text-sm md:text-[15px] leading-relaxed"
               style={{ borderLeft: `2px solid ${msg.color}` }}
@@ -32,7 +32,7 @@ const Slide05 = ({ isActive }: { isActive?: boolean }) => (
         ))}
       </div>
 
-      <FadeIn delay={300 + 6 * 800 + 2000}>
+      <FadeIn delay={3800}>
         <p className="text-slide-gold font-body text-sm md:text-[15px] text-center mt-10 italic max-w-[500px]">
           Se o Rafael ouve essas frases, ele pensa: "esse cara tá falando de mim."
         </p>
