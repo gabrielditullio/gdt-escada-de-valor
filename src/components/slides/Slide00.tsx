@@ -82,7 +82,7 @@ const Slide00: React.FC<Slide00Props> = ({ isActive, onNext }) => (
           Começar apresentação
         </span>
         <span
-          className="block animate-bounce-arrow opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-200"
+          className="block animate-bounce-arrow opacity-40 group-hover:opacity-100 group-hover:scale-110 group-hover:[animation-play-state:paused] transition-all duration-200"
           style={{ width: 12, height: 12, borderRight: "2px solid var(--slide-gold)", borderBottom: "2px solid var(--slide-gold)" }}
         />
         <span className="pointer-events-none absolute inset-0 rounded-[40px] border border-transparent group-hover:border-slide-gold/30 transition-colors duration-200" />
