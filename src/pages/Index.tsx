@@ -35,6 +35,8 @@ const Index: React.FC = () => {
   const progress = ((current + 1) / total) * 100;
   const slideRef = useRef<HTMLDivElement>(null);
   const [showScrollHint, setShowScrollHint] = useState(false);
+  const [showNavHint, setShowNavHint] = useState(false);
+  const navHintShown = useRef(false);
 
   // Escape key → first slide
   useEffect(() => {
@@ -44,6 +46,16 @@ const Index: React.FC = () => {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [goTo]);
+
+  // Navigation hint: show once on first arrival at slide 1
+  useEffect(() => {
+    if (current === 1 && !navHintShown.current) {
+      navHintShown.current = true;
+      const showTimer = setTimeout(() => setShowNavHint(true), 1000);
+      const hideTimer = setTimeout(() => setShowNavHint(false), 4000);
+      return () => { clearTimeout(showTimer); clearTimeout(hideTimer); };
+    }
+  }, [current]);
 
   // Scroll indicator: detect if slide content is scrollable
   useEffect(() => {
@@ -61,6 +73,7 @@ const Index: React.FC = () => {
   }, [current]);
 
   const SlideComponent = slideComponents[current];
+  const isCover = current === 0;
 
   return (
     <div
@@ -82,7 +95,7 @@ const Index: React.FC = () => {
         ref={slideRef}
         className="w-full h-full overflow-y-auto animate-slide-transition"
       >
-        {current === 0 ? (
+        {isCover ? (
           <Slide00 isActive={true} onNext={next} />
         ) : (
           <SlideComponent isActive={true} />
@@ -96,29 +109,87 @@ const Index: React.FC = () => {
         </div>
       )}
 
+      {/* === LATERAL ARROWS (primary navigation, hidden on cover) === */}
+      {!isCover && (
+        <>
+          {/* Left arrow */}
+          <button
+            onClick={prev}
+            disabled={current === 0}
+            className="fixed left-4 md:left-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full transition-all duration-200 disabled:opacity-0 disabled:pointer-events-none"
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(212,168,83,0.2)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(212,168,83,0.15)";
+              e.currentTarget.style.borderColor = "var(--slide-gold)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.2)";
+            }}
+            aria-label="Slide anterior"
+          >
+            <ChevronLeft size={20} className="text-slide-gold" />
+          </button>
+
+          {/* Right arrow */}
+          <button
+            onClick={next}
+            disabled={current === total - 1}
+            className="fixed right-4 md:right-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full transition-all duration-200 disabled:opacity-0 disabled:pointer-events-none"
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(212,168,83,0.2)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(212,168,83,0.15)";
+              e.currentTarget.style.borderColor = "var(--slide-gold)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+              e.currentTarget.style.borderColor = "rgba(212,168,83,0.2)";
+            }}
+            aria-label="Próximo slide"
+          >
+            <ChevronRight size={20} className="text-slide-gold" />
+          </button>
+        </>
+      )}
+
+      {/* Navigation hint — shows once on slide 2 */}
+      {showNavHint && (
+        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-40 animate-slide-fade-in">
+          <span className="font-body text-[12px] text-slide-white/30">
+            Use as setas para navegar
+          </span>
+        </div>
+      )}
+
       {/* Slide counter */}
       <div className="fixed bottom-6 left-6 text-slide-gray text-sm font-body z-50 select-none">
         {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </div>
 
-      {/* Navigation buttons — hidden on cover slide */}
-      {current !== 0 && (
+      {/* Secondary small navigation buttons — hidden on cover */}
+      {!isCover && (
         <div className="fixed bottom-6 right-6 flex gap-2 z-50">
           <button
             onClick={prev}
             disabled={current === 0}
-            className="w-12 h-12 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
             aria-label="Slide anterior"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={16} />
           </button>
           <button
             onClick={next}
             disabled={current === total - 1}
-            className="w-12 h-12 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-slide-gold-border bg-slide-dark-card/80 text-slide-gold disabled:opacity-30 hover:bg-slide-gold/10 transition-colors backdrop-blur-sm"
             aria-label="Próximo slide"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={16} />
           </button>
         </div>
       )}
