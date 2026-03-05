@@ -94,20 +94,20 @@ const Slide16 = ({ isActive }: { isActive?: boolean }) => {
         <div className="mt-16 pt-12 border-t border-slide-gold-border/20">
           <div className="text-center max-w-[700px] mx-auto">
             {manifesto.map((phrase, i) => (
-              <FadeIn key={i} delay={800 + i * 600}>
+              <FadeIn key={i} delay={400 + i * 300}>
                 <p className="font-display text-xl md:text-2xl lg:text-3xl text-slide-white leading-snug mb-6">
                   {phrase}
                 </p>
               </FadeIn>
             ))}
 
-            <FadeIn delay={800 + manifesto.length * 600}>
+            <FadeIn delay={1300}>
               <p className="text-slide-gold font-display text-2xl md:text-3xl tracking-wider mt-8">
                 Barbearia de Elite
               </p>
             </FadeIn>
 
-            <FadeIn delay={800 + manifesto.length * 600 + 400}>
+            <FadeIn delay={1600}>
               <div className="mt-10 bg-slide-dark-card border border-slide-gold rounded-2xl p-8">
                 <h4 className="text-slide-gold font-body font-bold text-sm uppercase tracking-wider mb-4">A Linha na Areia</h4>
                 <p className="text-slide-white font-body font-bold text-lg md:text-xl leading-relaxed">
