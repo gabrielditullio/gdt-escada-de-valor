@@ -29,10 +29,10 @@ const Slide17 = ({ isActive }: { isActive?: boolean }) => (
 
           {/* Middle circle - CONTROLADO */}
           <div className="absolute rounded-full border-2 border-[#3498DB] bg-[#3498DB]/5 w-64 h-64 flex items-center justify-center" />
-          <div className="absolute font-body font-bold text-[11px] uppercase tracking-wider text-[#3498DB]" style={{ top: '50%', right: 'calc(50% + 140px)', transform: 'translateY(-50%)' }}>
+          <div className="absolute font-body font-bold text-[11px] uppercase tracking-wider text-[#3498DB]" style={{ top: '50%', left: 'calc(50% + 160px)', transform: 'translateY(-50%)' }}>
             Controlado
           </div>
-          <div className="absolute font-body text-[10px] text-slide-gray-dark text-right" style={{ top: '50%', right: 'calc(50% + 140px)', transform: 'translateY(6px)', maxWidth: 140 }}>
+          <div className="absolute font-body text-[10px] text-slide-gray-dark text-left" style={{ top: '50%', left: 'calc(50% + 160px)', transform: 'translateY(6px)', maxWidth: 160 }}>
             Anúncios pagos no Instagram/Facebook
           </div>
 
@@ -43,8 +43,8 @@ const Slide17 = ({ isActive }: { isActive?: boolean }) => (
           </div>
 
           {/* Animated arrows */}
-          <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ right: 'calc(50% - 220px)', top: '50%', transform: 'translateY(-50%)' }}>→</div>
-          <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ left: 'calc(50% - 220px)', top: '50%', transform: 'translateY(-50%) scaleX(-1)' }}>→</div>
+          <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ right: 'calc(50% + 200px)', top: '50%', transform: 'translateY(-50%)' }}>→</div>
+          <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ left: 'calc(50% + 200px)', top: '50%', transform: 'translateY(-50%) scaleX(-1)' }}>→</div>
         </div>
       </FadeIn>
 
