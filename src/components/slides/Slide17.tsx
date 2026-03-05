@@ -15,36 +15,48 @@ const Slide17 = ({ isActive }: { isActive?: boolean }) => (
       <FadeIn delay={100}><SlideLabel>De onde vêm os clientes</SlideLabel></FadeIn>
       <FadeIn delay={100}><SlideTitle className="mt-3">Os 3 Tipos de Público</SlideTitle></FadeIn>
 
-      {/* Desktop: concentric circles with labels outside */}
+      {/* Desktop: concentric circles with legend below */}
       <FadeIn delay={300}>
-        <div className="hidden md:flex items-center justify-center mt-10 relative" style={{ minHeight: 420 }}>
-          {/* Outer circle - NÃO CONTROLADO */}
-          <div className="absolute rounded-full border-2 border-slide-gray/40 w-96 h-96 flex items-center justify-center" />
-          <div className="absolute font-body font-bold text-[11px] uppercase tracking-wider text-slide-gray-dark" style={{ top: 0, left: '50%', transform: 'translateX(-50%) translateY(-24px)' }}>
-            Não Controlado
-          </div>
-          <div className="absolute font-body text-[10px] text-slide-gray-dark" style={{ top: 0, left: '50%', transform: 'translateX(-50%) translateY(-8px)' }}>
-            Posts orgânicos, buscas, indicações
-          </div>
-
-          {/* Middle circle - CONTROLADO */}
-          <div className="absolute rounded-full border-2 border-[#3498DB] bg-[#3498DB]/5 w-64 h-64 flex items-center justify-center" />
-          <div className="absolute font-body font-bold text-[11px] uppercase tracking-wider text-[#3498DB]" style={{ top: '50%', left: 'calc(50% + 160px)', transform: 'translateY(-50%)' }}>
-            Controlado
-          </div>
-          <div className="absolute font-body text-[10px] text-slide-gray-dark text-left" style={{ top: '50%', left: 'calc(50% + 160px)', transform: 'translateY(6px)', maxWidth: 160 }}>
-            Anúncios pagos no Instagram/Facebook
+        <div className="hidden md:flex flex-col items-center mt-10">
+          <div className="relative flex items-center justify-center" style={{ width: 384, height: 384 }}>
+            {/* Outer circle */}
+            <div className="absolute inset-0 rounded-full border-2 border-slide-gray/40" />
+            {/* Middle circle */}
+            <div className="absolute rounded-full border-2 border-[#3498DB] bg-[#3498DB]/5" style={{ width: 256, height: 256 }} />
+            {/* Inner circle */}
+            <div className="absolute rounded-full border-2 border-slide-gold bg-slide-gold/10 flex flex-col items-center justify-center text-center p-3" style={{ width: 144, height: 144 }}>
+              <span className="font-body font-bold text-sm uppercase tracking-wider text-slide-dark">SEU</span>
+              <span className="font-body text-[10px] text-slide-gray-dark mt-1 leading-tight">Lista de emails<br/>e WhatsApp</span>
+            </div>
+            {/* Arrows inside diagram */}
+            <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ left: 16, top: '50%', transform: 'translateY(-50%)' }}>→</div>
+            <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ right: 16, top: '50%', transform: 'translateY(-50%) scaleX(-1)' }}>→</div>
           </div>
 
-          {/* Inner circle - SEU */}
-          <div className="absolute rounded-full border-2 border-slide-gold bg-slide-gold/10 w-36 h-36 flex flex-col items-center justify-center text-center p-3">
-            <span className="font-body font-bold text-sm uppercase tracking-wider text-slide-dark">SEU</span>
-            <span className="font-body text-[10px] text-slide-gray-dark mt-1 leading-tight">Lista de emails<br/>e WhatsApp</span>
+          {/* Legend below diagram */}
+          <div className="flex items-start gap-8 mt-6">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full border-2 border-slide-gray/60 shrink-0" />
+              <div>
+                <span className="font-body font-bold text-[11px] uppercase tracking-wider text-slide-gray-dark">Não Controlado</span>
+                <p className="font-body text-[10px] text-slide-gray-dark leading-tight">Posts orgânicos, buscas, indicações</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full border-2 border-[#3498DB] bg-[#3498DB]/20 shrink-0" />
+              <div>
+                <span className="font-body font-bold text-[11px] uppercase tracking-wider text-[#3498DB]">Controlado</span>
+                <p className="font-body text-[10px] text-slide-gray-dark leading-tight">Anúncios pagos no Instagram/Facebook</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full border-2 border-slide-gold bg-slide-gold/20 shrink-0" />
+              <div>
+                <span className="font-body font-bold text-[11px] uppercase tracking-wider text-slide-dark">Seu</span>
+                <p className="font-body text-[10px] text-slide-gray-dark leading-tight">Lista de emails e WhatsApp</p>
+              </div>
+            </div>
           </div>
-
-          {/* Animated arrows */}
-          <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ right: 'calc(50% + 200px)', top: '50%', transform: 'translateY(-50%)' }}>→</div>
-          <div className="absolute text-slide-gold animate-pulse-arrow text-lg" style={{ left: 'calc(50% + 200px)', top: '50%', transform: 'translateY(-50%) scaleX(-1)' }}>→</div>
         </div>
       </FadeIn>
 
