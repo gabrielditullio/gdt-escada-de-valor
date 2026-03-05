@@ -67,7 +67,7 @@ const Slide04 = ({ isActive }: { isActive?: boolean }) => (
       </FadeIn>
 
       <FadeIn delay={600}>
-        <p className="text-slide-gray text-sm md:text-[15px] leading-relaxed font-body text-center max-w-[600px] mt-8">
+        <p className="text-slide-gray text-sm md:text-[15px] leading-relaxed font-body text-left max-w-[600px] mt-8">
           Ele não é o cliente médio — é o melhor. O cara que, se você resolver o problema dele, te indica para 10 amigos.
         </p>
       </FadeIn>
