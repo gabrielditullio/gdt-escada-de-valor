@@ -157,13 +157,13 @@ const Index: React.FC = () => {
           <button
             type="button"
             onClick={() => goTo(1)}
-            className="fixed bottom-[72px] right-6 z-50 flex items-center gap-2 group cursor-pointer px-4 py-2 rounded-full hover:border-slide-gold/30 border border-transparent transition-all duration-200"
-            aria-label="Começar apresentação"
+            className="fixed bottom-[72px] right-6 z-50 flex items-center gap-2 group cursor-pointer px-4 py-2 rounded-full border border-transparent hover:border-slide-gold/30 transition-all duration-200"
+            aria-label="Começar a apresentação"
           >
-            <span className="font-body uppercase text-[12px] font-semibold tracking-[2px] text-slide-white/40 group-hover:text-slide-gold transition-all duration-200">
-              Começar
+            <span className="font-body uppercase text-[12px] font-semibold tracking-[2px] group-hover:text-slide-gold transition-all duration-200" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Começar a apresentação
             </span>
-            <ChevronDown size={16} className="text-slide-gold opacity-40 group-hover:opacity-100 animate-float transition-all duration-200" />
+            <ChevronDown size={16} style={{ color: "var(--slide-gold)", opacity: 0.5 }} className="group-hover:opacity-100 animate-float transition-all duration-200" />
           </button>
         </FadeIn>
       )}

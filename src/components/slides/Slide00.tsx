@@ -52,11 +52,11 @@ const Slide00: React.FC<Slide00Props> = ({ isActive, onNext }) => (
 
     <FadeIn delay={1000} isActive={isActive}>
       <div
-        className="hidden md:flex absolute top-1/2 md:right-10 lg:right-16 -translate-y-1/2 items-center justify-center"
-        style={{ width: 240, height: 240 }}
+        className="hidden md:flex absolute top-1/2 right-16 -translate-y-1/2 items-center justify-center z-10"
+        style={{ width: 280, height: 280 }}
       >
         <div className="absolute inset-0 rounded-full border border-slide-gold/20 animate-spin-slow" />
-        <div className="absolute inset-[28px] rounded-full border border-slide-gold/10" />
+        <div className="absolute inset-[30px] rounded-full border border-slide-gold/10" />
 
         <div className="relative z-10 flex flex-col items-center justify-center gap-1">
           <Scissors size={40} className="text-slide-gold" style={{ opacity: 0.4 }} />
