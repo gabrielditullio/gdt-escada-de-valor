@@ -12,7 +12,7 @@ const SlideWrapper: React.FC<SlideWrapperProps> = ({ theme = "dark", children, c
     <div
       className={cn(
         "slide-wrapper min-h-screen w-full overflow-y-auto overflow-x-hidden",
-        "px-5 py-12 md:px-10 lg:px-16",
+        "px-5 py-12 md:px-10 lg:px-20",
         "flex flex-col justify-center",
         theme === "dark" ? "bg-slide-dark text-slide-white" : "bg-slide-light text-slide-dark",
         className
