@@ -64,37 +64,36 @@ const Slide19 = ({ isActive }: { isActive?: boolean }) => {
         <FadeIn delay={200}><Subtitle className="mt-2">Cada fase desbloqueia a seguinte</Subtitle></FadeIn>
 
         <FadeIn delay={300}>
-          <div className="flex gap-4 mt-8 overflow-x-auto pb-4 -mx-2 px-2">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-8">
             {phases.map((p, i) => {
               const isUnlocked = i < unlocked;
               return (
                 <div
                   key={i}
-                  className="min-w-[200px] md:min-w-[220px] bg-white rounded-xl shadow-md p-5 flex-shrink-0 transition-all duration-500 relative"
+                  className="bg-white rounded-xl shadow-md p-4 transition-all duration-500 relative"
                   style={{
                     borderTop: `4px solid ${isUnlocked ? p.color : "#D1D5DB"}`,
                     opacity: isUnlocked ? 1 : 0.4,
                     transform: isUnlocked ? "scale(1)" : "scale(0.97)",
                   }}
                 >
-                  {/* Lock icon */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-display text-3xl" style={{ color: isUnlocked ? p.color : "#9CA3AF" }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-display text-2xl md:text-3xl" style={{ color: isUnlocked ? p.color : "#9CA3AF" }}>
                       {p.num}
                     </span>
                     {isUnlocked ? (
-                      <Unlock size={16} style={{ color: p.color }} className="transition-all duration-300" />
+                      <Unlock size={14} style={{ color: p.color }} />
                     ) : (
-                      <Lock size={16} className="text-gray-400" />
+                      <Lock size={14} className="text-gray-400" />
                     )}
                   </div>
 
-                  <h4 className="font-body font-bold text-sm text-slide-dark">{p.name}</h4>
-                  <p className="font-body text-[10px] text-slide-gray-dark mt-1 uppercase tracking-wider">{p.weeks}</p>
+                  <h4 className="font-body font-bold text-xs md:text-sm text-slide-dark leading-tight">{p.name}</h4>
+                  <p className="font-body text-[9px] md:text-[10px] text-slide-gray-dark mt-0.5 uppercase tracking-wider">{p.weeks}</p>
 
-                  <ul className="mt-3 flex flex-col gap-1.5">
+                  <ul className="mt-2 flex flex-col gap-1">
                     {p.items.map((item, j) => (
-                      <li key={j} className="font-body text-xs text-slide-gray-dark flex items-start gap-1.5">
+                      <li key={j} className="font-body text-[11px] md:text-xs text-slide-gray-dark flex items-start gap-1">
                         <span className="mt-1 w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: p.color }} />
                         {item}
                       </li>
@@ -102,16 +101,11 @@ const Slide19 = ({ isActive }: { isActive?: boolean }) => {
                   </ul>
 
                   <span
-                    className="inline-block mt-3 px-2 py-0.5 rounded-full text-[10px] font-body font-bold text-white"
+                    className="inline-block mt-2 px-2 py-0.5 rounded-full text-[9px] md:text-[10px] font-body font-bold text-white"
                     style={{ backgroundColor: isUnlocked ? p.color : "#9CA3AF" }}
                   >
                     {p.items.length} entregáveis
                   </span>
-
-                  {/* Connector arrow */}
-                  {i < phases.length - 1 && (
-                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 text-slide-gray text-lg z-10">→</div>
-                  )}
                 </div>
               );
             })}
