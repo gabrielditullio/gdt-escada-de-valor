@@ -95,7 +95,7 @@ const Slide11 = ({ isActive }: { isActive?: boolean }) => {
             {stackItems.map((item, i) => (
               <div
                 key={i}
-                className="flex justify-between items-center py-2 border-b border-slide-gold-border/30 transition-all duration-300"
+                className="flex justify-between items-center py-2 border-b border-slide-gold-border/30 transition-all duration-200 hover:border-slide-gold hover:-translate-y-0.5"
                 style={{ opacity: i < visibleItems ? 1 : 0, transform: i < visibleItems ? "translateY(0)" : "translateY(8px)" }}
               >
                 <span className="text-slide-gray font-body text-sm">{item.name}</span>
