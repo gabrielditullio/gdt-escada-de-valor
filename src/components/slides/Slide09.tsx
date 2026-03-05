@@ -60,20 +60,23 @@ const Slide09 = ({ isActive }: { isActive?: boolean }) => {
         {/* 3 Format Options */}
         <FadeIn delay={500}>
           <h3 className="text-slide-white font-body font-bold text-sm mt-8 mb-4">3 Opções de Formato</h3>
-          <div className="flex gap-4 overflow-x-auto pb-2 -mx-2 px-2 pt-4">
-            {formats.map((f, i) => (
-              <div key={i} className="min-w-[220px] bg-slide-dark-card border border-slide-gold-border hover:border-slide-gold rounded-xl p-5 flex-shrink-0 relative transition-all duration-200 hover:-translate-y-0.5">
-                {f.rec && (
-                  <span className="absolute -top-3 left-4 px-3 py-0.5 rounded-full text-[10px] font-body font-bold bg-slide-gold text-slide-black">
-                    Recomendado
-                  </span>
-                )}
-                <span className="text-2xl">{f.icon}</span>
-                <h4 className="text-slide-white font-body font-bold text-sm mt-2">{f.name}</h4>
-                <p className="text-slide-gray font-body text-xs mt-1">{f.desc}</p>
-                <p className="text-slide-gold font-body text-xs font-bold mt-2">{f.conv}</p>
-              </div>
-            ))}
+          <div className="relative">
+            <div className="flex gap-4 overflow-x-auto pb-2 -mx-2 px-2 pt-4">
+              {formats.map((f, i) => (
+                <div key={i} className="min-w-[220px] bg-slide-dark-card border border-slide-gold-border hover:border-slide-gold rounded-xl p-5 flex-shrink-0 relative transition-all duration-200 hover:-translate-y-0.5">
+                  {f.rec && (
+                    <span className="absolute -top-3 left-4 px-3 py-0.5 rounded-full text-[10px] font-body font-bold bg-slide-gold text-slide-black">
+                      Recomendado
+                    </span>
+                  )}
+                  <span className="text-2xl">{f.icon}</span>
+                  <h4 className="text-slide-white font-body font-bold text-sm mt-2">{f.name}</h4>
+                  <p className="text-slide-gray font-body text-xs mt-1">{f.desc}</p>
+                  <p className="text-slide-gold font-body text-xs font-bold mt-2">{f.conv}</p>
+                </div>
+              ))}
+            </div>
+            <div className="absolute right-0 top-0 w-10 h-full pointer-events-none" style={{ background: 'linear-gradient(to left, var(--slide-black), transparent)' }} />
           </div>
         </FadeIn>
 

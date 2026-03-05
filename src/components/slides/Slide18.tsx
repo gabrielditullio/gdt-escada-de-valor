@@ -33,18 +33,21 @@ const Slide18 = ({ isActive }: { isActive?: boolean }) => (
 
       {/* Weekly calendar */}
       <FadeIn delay={300}>
-        <div className="flex gap-3 mt-8 overflow-x-auto pb-2 -mx-2 px-2">
-          {weekdays.map((d, i) => (
-            <div
-              key={i}
-              className="min-w-[100px] bg-slide-dark-card rounded-xl p-4 flex-shrink-0 text-center border border-slide-gold-border/20"
-              style={{ borderTopColor: d.color, borderTopWidth: 3 }}
-            >
-              <span className="text-2xl">{d.icon}</span>
-              <p className="text-slide-white font-body font-bold text-xs mt-2">{d.day}</p>
-              <p className="text-slide-gray font-body text-[10px] mt-1">{d.type}</p>
-            </div>
-          ))}
+        <div className="relative">
+          <div className="flex gap-3 mt-8 overflow-x-auto pb-2 -mx-2 px-2">
+            {weekdays.map((d, i) => (
+              <div
+                key={i}
+                className="min-w-[100px] bg-slide-dark-card rounded-xl p-4 flex-shrink-0 text-center border border-slide-gold-border/20"
+                style={{ borderTopColor: d.color, borderTopWidth: 3 }}
+              >
+                <span className="text-2xl">{d.icon}</span>
+                <p className="text-slide-white font-body font-bold text-xs mt-2">{d.day}</p>
+                <p className="text-slide-gray font-body text-[10px] mt-1">{d.type}</p>
+              </div>
+            ))}
+          </div>
+          <div className="absolute right-0 top-0 w-10 h-full pointer-events-none" style={{ background: 'linear-gradient(to left, var(--slide-dark), transparent)' }} />
         </div>
       </FadeIn>
 
