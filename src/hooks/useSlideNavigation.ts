@@ -23,14 +23,19 @@ export function useSlideNavigation(totalSlides: number) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [next, prev]);
 
+  const touchStartY = useRef(0);
+
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
   }, []);
 
   const onTouchEnd = useCallback((e: React.TouchEvent) => {
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? next() : prev();
+    const diffX = touchStartX.current - e.changedTouches[0].clientX;
+    const diffY = touchStartY.current - e.changedTouches[0].clientY;
+    // Only navigate if horizontal swipe is dominant (not vertical scroll)
+    if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+      diffX > 0 ? next() : prev();
     }
   }, [next, prev]);
 
