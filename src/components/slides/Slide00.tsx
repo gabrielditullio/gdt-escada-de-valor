@@ -8,129 +8,89 @@ interface Slide00Props {
 }
 
 const Slide00: React.FC<Slide00Props> = ({ isActive, onNext }) => (
-  <div className="slide-wrapper h-screen w-full overflow-hidden bg-slide-black text-slide-white relative px-5 md:px-10 lg:px-16 flex flex-col justify-center">
-    {/* Gold bar top */}
+  <section className="slide-wrapper relative h-screen min-h-screen w-full overflow-hidden bg-slide-black text-slide-white px-5 md:px-10 lg:px-16">
     <div
-      className="absolute top-0 left-0 w-full h-1 z-10"
-      style={{ background: "linear-gradient(90deg, #D4A853, #E8D48B, #D4A853)" }}
+      className="absolute inset-x-0 top-0 h-1 z-20"
+      style={{ background: "linear-gradient(90deg, var(--slide-gold), #E8D48B, var(--slide-gold))" }}
     />
 
-    {/* Main content */}
-    <div className="relative z-10 max-w-[600px] text-left">
-      <FadeIn delay={300} isActive={isActive}>
-        <p
-          className="font-body text-slide-gold uppercase"
-          style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3 }}
-        >
-          Preparado por Gabriel Di Tullio · DT Coproduções
-        </p>
-      </FadeIn>
+    <div className="relative z-10 h-full w-full flex items-center">
+      <div className="max-w-[600px] pr-0 lg:pr-8">
+        <FadeIn delay={300} isActive={isActive}>
+          <p className="font-body text-slide-gold uppercase text-[11px] font-bold tracking-[3px]">
+            Preparado por Gabriel Di Tullio · DT Coproduções
+          </p>
+        </FadeIn>
 
-      <FadeIn delay={500} isActive={isActive}>
-        <p
-          className="font-body mt-5"
-          style={{ fontSize: "clamp(14px, 2vw, 18px)", fontWeight: 400, color: "rgba(255,255,255,0.5)" }}
-        >
-          A Arquitetura Completa para Transformar a
-        </p>
-      </FadeIn>
+        <FadeIn delay={500} isActive={isActive}>
+          <p className="font-body mt-5 text-[clamp(14px,2vw,18px)] font-normal text-slide-white/50">
+            A Arquitetura Completa para Transformar a
+          </p>
+        </FadeIn>
 
-      <FadeIn delay={700} isActive={isActive}>
-        <h1
-          className="font-display text-slide-white"
-          style={{ fontSize: "clamp(48px, 8vw, 96px)", lineHeight: 0.95, letterSpacing: 2 }}
-        >
-          MVP Education
-        </h1>
-      </FadeIn>
+        <FadeIn delay={700} isActive={isActive}>
+          <h1 className="font-display leading-[0.95] tracking-[2px] text-slide-white text-[clamp(48px,8vw,96px)]">
+            MVP Education
+          </h1>
+        </FadeIn>
 
-      <FadeIn delay={900} isActive={isActive}>
-        <p
-          className="font-body"
-          style={{
-            fontSize: "clamp(14px, 2vw, 18px)",
-            fontWeight: 400,
-            color: "rgba(255,255,255,0.5)",
-            maxWidth: 500,
-          }}
-        >
-          em uma Máquina de Aquisição e Ascensão de Clientes
-        </p>
-      </FadeIn>
+        <FadeIn delay={900} isActive={isActive}>
+          <p className="font-body text-[clamp(14px,2vw,18px)] font-normal text-slide-white/50 max-w-[500px]">
+            em uma Máquina de Aquisição e Ascensão de Clientes
+          </p>
+        </FadeIn>
 
-      <div style={{ height: 32 }} />
+        <div className="h-8" />
 
-      <FadeIn delay={1100} isActive={isActive}>
-        <p
-          className="font-display text-slide-gold"
-          style={{ fontSize: "clamp(24px, 3vw, 36px)", letterSpacing: 1 }}
-        >
-          Guilherme Toledo
-        </p>
-      </FadeIn>
+        <FadeIn delay={1100} isActive={isActive}>
+          <p className="font-display text-slide-gold text-[clamp(24px,3vw,36px)] tracking-[1px]">
+            Guilherme Toledo
+          </p>
+        </FadeIn>
+      </div>
     </div>
 
-    {/* Decorative circles with barber seal */}
-    <div className="hidden md:flex absolute right-10 lg:right-20 top-1/2 -translate-y-1/2 items-center justify-center" style={{ width: "clamp(200px, 20vw, 280px)", height: "clamp(200px, 20vw, 280px)" }}>
-      <FadeIn delay={1000} isActive={isActive} className="absolute inset-0">
-        <div className="absolute inset-0 rounded-full animate-spin-slow" style={{ border: "1px solid rgba(212,168,83,0.2)" }} />
-        <div className="absolute rounded-full" style={{ inset: 30, border: "1px solid rgba(212,168,83,0.12)" }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 pointer-events-none">
-          <Scissors className="text-slide-gold" style={{ opacity: 0.5 }} size={48} />
-          <span
-            className="font-body uppercase text-slide-gold text-center"
-            style={{ opacity: 0.3, fontSize: 10, letterSpacing: 3 }}
-          >
+    <FadeIn delay={1000} isActive={isActive}>
+      <div
+        className="hidden md:flex absolute top-1/2 right-8 lg:right-16 -translate-y-1/2 items-center justify-center"
+        style={{ width: "clamp(200px,20vw,280px)", height: "clamp(200px,20vw,280px)" }}
+      >
+        <div className="absolute inset-0 rounded-full border border-slide-gold/20 animate-spin-slow" />
+        <div className="absolute inset-[30px] rounded-full border border-slide-gold/10" />
+
+        <div className="relative z-10 flex flex-col items-center justify-center gap-2">
+          <Scissors size={48} className="text-slide-gold opacity-50" />
+          <span className="font-body uppercase text-slide-gold/30 text-[10px] tracking-[3px] text-center">
             BARBEARIA DE ELITE
           </span>
         </div>
-      </FadeIn>
-    </div>
+      </div>
+    </FadeIn>
 
-    {/* "Começar" indicator */}
     <FadeIn delay={2000} isActive={isActive}>
       <button
         type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          onNext?.();
-        }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-20 flex flex-col items-center gap-2 group cursor-pointer bg-transparent border-none outline-none z-20"
+        onClick={onNext}
+        className="absolute bottom-[76px] md:bottom-[88px] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 group"
+        aria-label="Começar apresentação"
       >
-        <span
-          className="font-body uppercase group-hover:!opacity-100 transition-opacity duration-200"
-          style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, color: "rgba(255,255,255,0.4)" }}
-        >
+        <span className="font-body uppercase text-[12px] font-semibold tracking-[2px] text-slide-white/40 group-hover:text-slide-white transition-colors duration-200">
           Começar apresentação
         </span>
         <span
-          className="animate-bounce-arrow group-hover:!opacity-100 transition-opacity duration-200 block"
-          style={{
-            width: 12,
-            height: 12,
-            borderRight: "2px solid var(--slide-gold)",
-            borderBottom: "2px solid var(--slide-gold)",
-            opacity: 0.4,
-          }}
+          className="block animate-bounce-arrow group-hover:opacity-100 transition-opacity duration-200 opacity-40"
+          style={{ width: 12, height: 12, borderRight: "2px solid var(--slide-gold)", borderBottom: "2px solid var(--slide-gold)" }}
         />
       </button>
     </FadeIn>
 
-    {/* Footer */}
     <FadeIn delay={1500} isActive={isActive}>
-      <footer
-        className="absolute bottom-0 left-0 w-full flex justify-between items-center px-5 md:px-10 lg:px-16 py-4"
-        style={{ background: "rgba(10,10,10,0.6)", borderTop: "1px solid rgba(212,168,83,0.08)" }}
-      >
-        <span className="font-body" style={{ color: "rgba(255,255,255,0.25)", fontSize: 11 }}>
-          Documento confidencial · Uso interno
-        </span>
-        <span className="font-body" style={{ color: "rgba(255,255,255,0.25)", fontSize: 11 }}>
-          2026
-        </span>
+      <footer className="pointer-events-none absolute bottom-0 left-0 w-full flex items-center justify-between px-5 md:px-10 lg:px-16 py-4 bg-slide-black/60 border-t border-slide-gold/10 z-20">
+        <span className="font-body text-[11px] text-slide-white/25">Documento confidencial · Uso interno</span>
+        <span className="font-body text-[11px] text-slide-white/25">2026</span>
       </footer>
     </FadeIn>
-  </div>
+  </section>
 );
 
 export default Slide00;
