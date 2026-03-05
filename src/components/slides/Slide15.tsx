@@ -74,7 +74,7 @@ const Slide15 = ({ isActive }: { isActive?: boolean }) => {
   }, [isActive]);
 
   return (
-    <SlideWrapper theme="dark" className="justify-start pt-10 lg:pt-12 pb-20">
+    <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16 pb-20">
       <GoldBarTop />
       <div className="w-full max-w-4xl mx-auto">
         <FadeIn delay={100}><SlideLabel>A jornada</SlideLabel></FadeIn>

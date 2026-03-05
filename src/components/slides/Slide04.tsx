@@ -19,7 +19,7 @@ const floatingIcons = [
 ];
 
 const Slide04 = ({ isActive }: { isActive?: boolean }) => (
-  <SlideWrapper theme="dark" className="justify-start pt-16 lg:pt-20">
+  <SlideWrapper theme="dark" className="justify-start pt-14 lg:pt-16">
     <GoldBarTop />
     <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
       <FadeIn delay={100}>
